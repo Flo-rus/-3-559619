@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3lw53hnm0nda"]
+
+[ext_resource type="Script" uid="uid://b1ivxmlj2qojp" path="res://scripts/shoot_component.cs" id="1_d0mk6"]
+[ext_resource type="PackedScene" uid="uid://pax65hcbq4w8" path="res://scenes/bullet.tscn" id="2_0qiqc"]
+
+[node name="shoot_component" type="Node" unique_id=572368340]
+script = ExtResource("1_d0mk6")
+BulletScene = ExtResource("2_0qiqc")

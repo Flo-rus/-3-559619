@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://di0kpfvl81bdw"]
+
+[ext_resource type="Script" uid="uid://bai2q0mk30a7h" path="res://scripts/move_component.cs" id="1_vfpy0"]
+[ext_resource type="Script" uid="uid://ci3sd0nisv6ry" path="res://scripts/vision_component.cs" id="2_uksqa"]
+[ext_resource type="Script" uid="uid://b1ivxmlj2qojp" path="res://scripts/shoot_component.cs" id="3_uksqa"]
+[ext_resource type="PackedScene" uid="uid://pax65hcbq4w8" path="res://scenes/bullet.tscn" id="4_1opkc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n7mfn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n7mfn"]
+radius = 33.880806
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n7mfn"]
+
+[node name="Tower" type="CharacterBody3D" unique_id=535390115 groups=["alias"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1923334566]
+shape = SubResource("CapsuleShape3D_n7mfn")
+
+[node name="move_component" type="Node" parent="." unique_id=37166550 node_paths=PackedStringArray("vision_component")]
+script = ExtResource("1_vfpy0")
+vision_component = NodePath("../vision_component")
+metadata/_custom_type_script = "uid://bai2q0mk30a7h"
+
+[node name="vision_component" type="Area3D" parent="." unique_id=899551518]
+script = ExtResource("2_uksqa")
+metadata/_custom_type_script = "uid://ci3sd0nisv6ry"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vision_component" unique_id=584028734]
+shape = SubResource("SphereShape3D_n7mfn")
+
+[node name="health_component" type="Node" parent="." unique_id=1100926776]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=688504012]
+mesh = SubResource("CapsuleMesh_n7mfn")
+
+[node name="shoot_component" type="Node" parent="." unique_id=275476465 node_paths=PackedStringArray("vision_component")]
+script = ExtResource("3_uksqa")
+vision_component = NodePath("../vision_component")
+BulletScene = ExtResource("4_1opkc")
+metadata/_custom_type_script = "uid://b1ivxmlj2qojp"

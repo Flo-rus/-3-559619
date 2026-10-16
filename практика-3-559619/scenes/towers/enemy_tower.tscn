@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bj3r10ycx067q"]
+
+[ext_resource type="Script" uid="uid://bai2q0mk30a7h" path="res://scripts/move_component.cs" id="1_vsey4"]
+[ext_resource type="Script" uid="uid://ci3sd0nisv6ry" path="res://scripts/vision_component.cs" id="2_dgidg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n7mfn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n7mfn"]
+radius = 33.817158
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfn8n"]
+albedo_color = Color(1, 0.02745098, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n7mfn"]
+material = SubResource("StandardMaterial3D_dfn8n")
+
+[node name="Tower" type="CharacterBody3D" unique_id=535390115 groups=["enemies"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1923334566]
+shape = SubResource("CapsuleShape3D_n7mfn")
+
+[node name="move_component" type="Node" parent="." unique_id=37166550 node_paths=PackedStringArray("vision_component")]
+script = ExtResource("1_vsey4")
+vision_component = NodePath("../vision_component")
+metadata/_custom_type_script = "uid://bai2q0mk30a7h"
+
+[node name="vision_component" type="Area3D" parent="." unique_id=899551518]
+script = ExtResource("2_dgidg")
+metadata/_custom_type_script = "uid://ci3sd0nisv6ry"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vision_component" unique_id=584028734]
+shape = SubResource("SphereShape3D_n7mfn")
+
+[node name="health_component" type="Node" parent="." unique_id=1100926776]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=688504012]
+mesh = SubResource("CapsuleMesh_n7mfn")

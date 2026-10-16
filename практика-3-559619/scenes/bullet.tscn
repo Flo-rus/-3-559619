@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://pax65hcbq4w8"]
+
+[ext_resource type="Script" uid="uid://dt8ectew1n6er" path="res://scripts/Bullet.cs" id="1_mkf8s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n7mfn"]
+size = Vector3(4.17, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n7mfn"]
+size = Vector3(4.1845703, 1, 1)
+
+[node name="Area3D" type="Area3D" unique_id=1397154439]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("1_mkf8s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2118868944]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_n7mfn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1149717577]
+transform = Transform3D(-4.371139e-08, 0, 1.0000001, 0, 1.0000001, 0, -1, 0, -4.3711392e-08, -0.0014648438, 0, 2.0816682e-16)
+shape = SubResource("BoxShape3D_n7mfn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

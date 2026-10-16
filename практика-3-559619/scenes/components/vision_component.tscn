@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://t1scnjunsx6u"]
+
+[ext_resource type="Script" uid="uid://ci3sd0nisv6ry" path="res://scripts/vision_component.cs" id="1_cbhkx"]
+
+[node name="vision_component" type="Area3D" unique_id=1959728984]
+monitorable = false
+script = ExtResource("1_cbhkx")
